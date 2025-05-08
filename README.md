@@ -1,3 +1,1 @@
-"# IC" 
-"# IC" 
-"# IC"           # 1. Create a README file
+This is where we will be storing our IC test application code.
