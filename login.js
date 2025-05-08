@@ -1,4 +1,4 @@
-Amplify.configure({
+window.Amplify.configure({
   Auth: {
     region: 'us-east-2',
     userPoolId: 'us-east-2_sXPoDwy6L',
@@ -6,8 +6,8 @@ Amplify.configure({
     oauth: {
       domain: 'us-east-2sxpodwy6l.auth.us-east-2.amazoncognito.com',
       scope: ['email', 'openid', 'profile'],
-      redirectSignIn: 'https://d281thdbjdsx7k.cloudfront.net/',
-      redirectSignOut: 'https://d281thdbjdsx7k.cloudfront.net/',
+      redirectSignIn: 'https://main.d1wiq1447tfwgs.amplifyapp.com/',
+      redirectSignOut: 'https://main.d1wiq1447tfwgs.amplifyapp.com/',
       responseType: 'code'
     }
   }
