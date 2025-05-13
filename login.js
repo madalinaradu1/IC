@@ -25,25 +25,31 @@ waitForAmplify(() => {
   Amplify.configure(amplifyConfig);
 
   const signIn = async () => {
-    console.log("Login button clicked"); // Confirm button is wired
+    console.log("✅ Login button clicked");
     try {
       await Amplify.Auth.federatedSignIn();
     } catch (error) {
-      console.error('Sign-in error:', error);
+      console.error('❌ Sign-in error:', error);
     }
   };
 
   const signOut = async () => {
+    console.log("✅ Logout button clicked");
     try {
       await Amplify.Auth.signOut();
     } catch (error) {
-      console.error('Sign-out error:', error);
+      console.error('❌ Sign-out error:', error);
     }
   };
 
-  // ✅ Wait for DOM to be fully loaded before binding buttons
-  document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('loginButton').addEventListener('click', signIn);
-    document.getElementById('logoutButton').addEventListener('click', signOut);
-  });
+  // ✅ DIRECTLY bind click listeners now (no DOMContentLoaded delay)
+  const loginBtn = document.getElementById('loginButton');
+  const logoutBtn = document.getElementById('logoutButton');
+
+  if (loginBtn && logoutBtn) {
+    loginBtn.addEventListener('click', signIn);
+    logoutBtn.addEventListener('click', signOut);
+  } else {
+    console.error("❌ Buttons not found in DOM. Check IDs.");
+  }
 });
