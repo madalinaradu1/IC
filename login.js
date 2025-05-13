@@ -24,19 +24,24 @@ waitForAmplify(() => {
 
   Amplify.configure(amplifyConfig);
 
-  window.signIn = async function () {
+  // ✅ Define signIn and signOut
+  async function signIn() {
     try {
       await Amplify.Auth.federatedSignIn();
     } catch (error) {
       console.error('Sign-in error:', error);
     }
-  };
+  }
 
-  window.signOut = async function () {
+  async function signOut() {
     try {
       await Amplify.Auth.signOut();
     } catch (error) {
       console.error('Sign-out error:', error);
     }
-  };
+  }
+
+  // ✅ Attach events to buttons only after DOM is ready
+  document.getElementById('loginButton').addEventListener('click', signIn);
+  document.getElementById('logoutButton').addEventListener('click', signOut);
 });
