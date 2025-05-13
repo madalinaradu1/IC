@@ -13,11 +13,11 @@ const amplifyConfig = {
   },
 };
 
-Amplify.default.configure(amplifyConfig);
+Amplify.configure(amplifyConfig);
 
 async function signIn() {
   try {
-    await Amplify.default.Auth.federatedSignIn();
+    await Amplify.Auth.federatedSignIn();
   } catch (error) {
     console.error('Sign-in error:', error);
   }
@@ -25,7 +25,7 @@ async function signIn() {
 
 async function signOut() {
   try {
-    await Amplify.default.Auth.signOut();
+    await Amplify.Auth.signOut();
   } catch (error) {
     console.error('Sign-out error:', error);
   }
