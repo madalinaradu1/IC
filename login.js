@@ -24,24 +24,26 @@ waitForAmplify(() => {
 
   Amplify.configure(amplifyConfig);
 
-  // ✅ Define signIn and signOut
-  async function signIn() {
+  const signIn = async () => {
+    console.log("Login button clicked"); // Confirm button is wired
     try {
       await Amplify.Auth.federatedSignIn();
     } catch (error) {
       console.error('Sign-in error:', error);
     }
-  }
+  };
 
-  async function signOut() {
+  const signOut = async () => {
     try {
       await Amplify.Auth.signOut();
     } catch (error) {
       console.error('Sign-out error:', error);
     }
-  }
+  };
 
-  // ✅ Attach events to buttons only after DOM is ready
-  document.getElementById('loginButton').addEventListener('click', signIn);
-  document.getElementById('logoutButton').addEventListener('click', signOut);
+  // ✅ Wait for DOM to be fully loaded before binding buttons
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('loginButton').addEventListener('click', signIn);
+    document.getElementById('logoutButton').addEventListener('click', signOut);
+  });
 });
