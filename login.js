@@ -6,8 +6,8 @@ const amplifyConfig = {
     oauth: {
       domain: 'us-east-1qt6fhjwcz.auth.us-east-1.amazoncognito.com',
       scope: ['openid', 'email', 'profile'],
-      redirectSignIn: 'https://d19bbklwg9pa0q.cloudfront.net/',
-      redirectSignOut: 'https://d19bbklwg9pa0q.cloudfront.net/',
+      redirectSignIn: 'https://main.drcex0cp0mm74.amplifyapp.com/',
+      redirectSignOut: 'https://main.drcex0cp0mm74.amplifyapp.com/',
       responseType: 'code',
     },
   },
